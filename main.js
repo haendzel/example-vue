@@ -3,38 +3,50 @@ var app = new Vue ({
 	el: '#app',
 	data: {
 		product: "Socks",
-		firstName: "Filip",
-		lastName: "Handzel",
+		brand: "Vue Mastery",
 		image: "./assets/img/socks-green.jpg",
 		link: 'https://filiphandzel.pl/cv',
 		altText: "Amazing Socks!",
-		inventory: 8,
 		onSale: true,
 		details: ["80% cotton", "20% polyester", "Gender-neutral"],
 		variants: [
 	      {
 	        variantId: 2234,
 	        variantColor: 'green',
-	        variantImage: "./assets/img/socks-green.jpg"    
+	        variantImage: "./assets/img/socks-green.jpg",
+	        variantQuantify: 12    
 	      },
 	      {
 	        variantId: 2235,
 	        variantColor: 'blue',
-	        variantImage: "./assets/img/socks-blue.jpg"
+	        variantImage: "./assets/img/socks-blue.jpg",
+	        variantQuantify: 0
 	      }
 	    ],
-	    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
 	    cart: 0,
+	    selectedVariant: 0,
 	    },
 	    methods: {
-	    	addToCart() {
+	    	addToCart: function() {
 	    		this.cart += 1
 	    	},
-	    	RemoveFromCart() {
+	    	RemoveFromCart: function() {
 	    		this.cart -= 1
 	    	},
-	    	updateProduct(variantImage) {
-      		this.image = variantImage
+	    	updateProduct: function(index) {
+      		this.selectedVariant = index
     		}
+	    },
+	    computed: {
+	    	title() {
+	    		return this.brand + ' ' + this.product
+	    	},
+	    	image(){
+            	return this.variants[this.selectedVariant].variantImage
+        	},
+	    	inStock(){
+	    		return this.variants[this.selectedVariant].variantQuantify
+	    	}
 	    }
+
 })
