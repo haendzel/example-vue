@@ -4,7 +4,6 @@ var app = new Vue ({
 	data: {
 		product: "Socks",
 		brand: "Vue Mastery",
-		image: "./assets/img/socks-green.jpg",
 		link: 'https://filiphandzel.pl/cv',
 		altText: "Amazing Socks!",
 		onSale: true,
