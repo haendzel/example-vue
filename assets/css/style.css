@@ -5,7 +5,7 @@ body {
   }
   
   .nav-bar {
-    background: linear-gradient(-90deg, #84CF6A, #16C0B0);
+    background: linear-gradient(-90deg, #091d3d, #212223);
     height: 60px;
     margin-bottom: 15px;
   }
@@ -37,6 +37,7 @@ body {
     width: 40px;
     height: 40px;
     margin-top: 5px;
+    border: 1px solid black;
   }
   
   .cart {
@@ -45,19 +46,25 @@ body {
     border: 1px solid #d8d8d8;
     padding: 5px 20px;
   }
-  
+  button:hover {
+    background: black;
+    color: white;
+  }
   button {
     margin-top: 30px;
-    border: none;
-    background-color: #1E95EA;
+    border: 1px solid black;
+    background-color: transparent;
     color: white;
     height: 40px;
     width: 100px;
     font-size: 14px;
+    color: black;
   } 
   
   .disabledButton {
-    background-color: #d8d8d8;
+    border-color: #d8d8d8;
+    border: 1px solid;
+    color: #d8d8d8;
   }
   
   .review-form {

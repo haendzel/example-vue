@@ -25,6 +25,7 @@
 		<p v-else
 		:disabled="!inStock"
 		:class="{ OutOfStock: !inStock }">Out of Stock</p>
+		<p>{{ description }}</p>
 		<ul>
 			<li v-for="detail in details">{{ detail }}</li>
 		</ul>

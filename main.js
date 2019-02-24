@@ -2,25 +2,58 @@ var app = new Vue ({
 
 	el: '#app',
 	data: {
-		product: "Socks",
-		brand: "Vue Mastery",
+		product: "Hoodie",
+		brand: "NASA",
 		link: 'https://filiphandzel.pl/cv',
-		altText: "Amazing Socks!",
+		altText: "You must to buy it!",
 		onSale: true,
-		details: ["80% cotton", "20% polyester", "Gender-neutral"],
+		description: "Amazing hoodie for expedition to Mars!",
+		details: ["65% cotton", "35% polyester", "Gender-neutral", "Hand wash only"],
 		variants: [
 	      {
-	        variantId: 2234,
-	        variantColor: 'green',
-	        variantImage: "./assets/img/socks-green.jpg",
-	        variantQuantify: 12    
+	        variantId: 1,
+	        variantColor: 'white',
+	        variantImage: "./assets/img/white-nasa.jpg",
+	        variantQuantify: 12,
+	        variantSizeXS: 2,
+	        variantSizeS: 6,
+	        variantSizeM: 1,
+	        variantSizeL: 3,
+	        variantSizeXL: 0
 	      },
 	      {
-	        variantId: 2235,
-	        variantColor: 'blue',
-	        variantImage: "./assets/img/socks-blue.jpg",
+	        variantId: 2,
+	        variantColor: 'gray',
+	        variantImage: "./assets/img/gray-nasa.jpg",
+	        variantQuantify: 17
+	        //variantSizeXS: 2
+	        //variantSizeS: 6
+	        //variantSizeM: 6
+	        //variantSizeL: 3
+	        //variantSizeXL: 0
+	      },
+	      {
+	        variantId: 3,
+	        variantColor: 'black',
+	        variantImage: "./assets/img/black-nasa.jpg",
 	        variantQuantify: 0
-	      }
+	        //variantSizeXS: 0
+	        //variantSizeS: 0
+	        //variantSizeM: 0
+	        //variantSizeL: 0
+	        //variantSizeXL: 0
+	      },
+	      {
+	        variantId: 4,
+	        variantColor: 'indigo',
+	        variantImage: "./assets/img/violet-nasa.jpg",
+	        variantQuantify: 20
+	        //variantSizeXS: 2
+	        //variantSizeS: 6
+	        //variantSizeM: 9
+	        //variantSizeL: 3
+	        //variantSizeXL: 0
+	      },
 	    ],
 	    cart: 0,
 	    selectedVariant: 0,
