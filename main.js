@@ -1,12 +1,64 @@
-var app = new Vue ({
+Vue.component('product', {
+	template:`
+	<div class="product">
+		<div class="product">
 
-	el: '#app',
-	data: {
+	<div class="product-image">
+		<img v-bind:src="image" v-bind:alt="altText"/>
+	</div>
+
+	<div class="product-info">
+		<h1>
+			{{ title }}
+		</h1>
+		<h2>{{ price }}</h2>
+		<h4 v-show="onSale"><p>On sale!</p></h4>
+		<p v-if="inStock">In Stock</p>
+		<p v-else
+		:disabled="!inStock"
+		:class="{ OutOfStock: !inStock }">Out of Stock</p>
+		<p>{{ description }}</p>
+		<p>Shipping: {{ shipping }}</p>
+		<ul>
+			<li v-for="detail in details">{{ detail }}</li>
+		</ul>
+
+		 <div class="color-box"
+		 v-for="(variant, index) in variants" 
+		 :key="variant.variantId"
+		 :style="{ backgroundColor: variant.variantColor }"
+		 @mouseover="updateProduct(index)">
+      	</div>
+
+		<button v-on:click="addToCart"
+		:disabled="!inStock"
+		:class="{ disabledButton: !inStock }"
+		>Add to cart
+		</button>
+
+		<button v-on:click="RemoveFromCart"
+		:disabled="!inStock"
+		:class="{ disabledButton: !inStock }"
+		>Remove from cart
+	    </button>
+
+		<div class="cart">
+			<p>Cart ({{ cart }})</p>
+		</div>
+		
+	</div>
+</div>
+	</div>
+	`,
+	data(){
+		return {
 		product: "Hoodie",
 		brand: "NASA",
+		price: "129.90 PLN",
 		link: 'https://filiphandzel.pl/cv',
 		altText: "You must to buy it!",
-		onSale: true,
+		onSale: false,
+		shipping: "14.90 PLN",
 		description: "Amazing hoodie for expedition to Mars!",
 		details: ["65% cotton", "35% polyester", "Gender-neutral", "Hand wash only"],
 		variants: [
@@ -57,9 +109,10 @@ var app = new Vue ({
 	    ],
 	    cart: 0,
 	    selectedVariant: 0,
-	    },
-	    methods: {
-	    	addToCart: function() {
+		}
+	},
+	methods: {
+		addToCart: function() {
 	    		this.cart += 1
 	    	},
 	    	RemoveFromCart: function() {
@@ -68,9 +121,9 @@ var app = new Vue ({
 	    	updateProduct: function(index) {
       		this.selectedVariant = index
     		}
-	    },
-	    computed: {
-	    	title() {
+	},
+	computed: {
+		title() {
 	    		return this.brand + ' ' + this.product
 	    	},
 	    	image(){
@@ -79,6 +132,9 @@ var app = new Vue ({
 	    	inStock(){
 	    		return this.variants[this.selectedVariant].variantQuantify
 	    	}
-	    }
+	}
+})
 
+var app = new Vue ({
+	el: '#app'
 })

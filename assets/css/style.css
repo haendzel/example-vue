@@ -95,10 +95,6 @@ body {
     text-decoration: underline;
   }
 
-  ul, li {
-   list-style-type: none;
-  }
-
   .OutOfStock {
     text-decoration: line-through;
   }
